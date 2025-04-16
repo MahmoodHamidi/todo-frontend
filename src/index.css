@@ -43,6 +43,7 @@ input {
   font-family: inherit;
   color: inherit;
   margin-right: 0.5rem;
+  border: 1px solid;
 }
 
 ul {
