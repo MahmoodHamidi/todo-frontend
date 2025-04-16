@@ -17,7 +17,6 @@ const App = () => {
       const response = await axios.get(fetchURL);
       console.log(response.data);
       setTasks(response.data);
-      toast.success("Todos erfolgreich geladen💪");
     } catch (error) {
       console.log(error.message);
     }
@@ -41,7 +40,7 @@ const App = () => {
       await axios.post(apiURL, {
         todo: newTaskText,
       });
-      toast.info("Todo erfolgreich hinzugefügt 💪");
+      toast.info("Todo successfully added 💪");
       fetchAPI(apiURL);
     } catch (error) {
       console.log("Failed to create task. Please try again.");
@@ -55,7 +54,7 @@ const App = () => {
     try {
       await axios.delete(`${apiURL}/${id}`);
       fetchAPI(apiURL);
-      toast.error("Todo erfolgreich gelöscht 💪");
+      toast.error("Todo successfully deleted 💪");
     } catch (error) {
       console.log(error.message);
     }
@@ -68,6 +67,8 @@ const App = () => {
       <div>
         <form onSubmit={createTask}>
           <input
+            className="input "
+            placeholder="Add a new task"
             type="text"
             value={newTaskText}
             onChange={(e) => {
